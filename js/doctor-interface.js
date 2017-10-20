@@ -2,7 +2,7 @@ import { Doctor } from './../js/doctor.js';
 
 $(document).ready(function() {
   $('.input').submit(function(event) {
-    $('#doctor').text("");
+    $('#results').append("<img src = 'img/loading.gif'>");
     event.preventDefault();
 
     let name = $('#name').val();
@@ -11,12 +11,12 @@ $(document).ready(function() {
 
     searchQuery.then(function(response) {
       let body = JSON.parse(response);
-      $('#results').append("<img src = 'img/loading.gif'>");
+
       $('#results').text('');
       if (body.data.length > 0) {
       body.data.forEach(function(data) {
         data.practices.forEach(function(practice) {
-        $('#results').append(`<tr><td>${practice.name}</td><td>${practice.visit_address.street}</td><td>${practice.phones.number}</td></td>`);
+        $('#results').append(`<tr><td>${practice.name}</td><td>${practice.visit_address.street}</td><td>${practice.phones[0].number}</td><td>${practice.website}</td><td>${practice.accepts_new_patients}</td></tr>`);
       });
     });
     } else {
