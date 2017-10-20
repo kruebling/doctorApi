@@ -7,9 +7,14 @@
     <script type="text/javascript" src="build/js/app.js"></script>
   </head>
   <body>
+    <div class="jumbotron">
+        <h1>DOCTOR DATABASE</h1>
+    </div><br>
     <div class="container">
       <div class="row">
         <form class="input" action="index.html">
+          <label for= "location">Enter a Location</label>
+          <input type ="text" id = "location">
           <label for= "name">Doctor Name</label>
           <input type ="text" id = "name">
           <label for= "query">Symptoms</label>
@@ -17,13 +22,13 @@
           <button type="submit" name="button">Search</button>
         </form>
       </div>
-    </div>
+    </div><br>
     <div class="container">
       <div class="row">
-        <table class="table">
+        <table class="table table-striped">
           <thead>
             <tr>
-              <th>Doctor Name</th>
+              <th>Doctor Name / Institution</th>
               <th>Address</th>
               <th>City</th>
               <th>Phone Number</th>
@@ -31,6 +36,8 @@
               <th>Accepts New Patients</th>
             </tr>
           </thead>
+          <div id="showErrors">
+          </div>
           <tbody id="results">
           </tbody>
         </table>
